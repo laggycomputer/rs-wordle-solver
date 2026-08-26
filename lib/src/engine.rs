@@ -468,6 +468,11 @@ where
             GuessFrom::PossibleWords => self.grouped_words.possible_words(),
         }
     }
+
+    /// Score a single word.
+    pub fn score_word(&self, word: &Arc<str>) -> i64 {
+        self.scorer.score_word(word)
+    }
 }
 
 impl<T> Guesser for MaxScoreGuesser<T>
